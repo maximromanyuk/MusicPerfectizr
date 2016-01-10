@@ -5,7 +5,7 @@ namespace MusicPerfectizr.Domain
 {
     public static class Feature
     {
-        // повертає строку без недопустимих символів
+        // Повертає строку без недопустимих символів
         public static string CleanString(string strIn)
         {
             // якщо стрічка пуста - повертаємо її назад
