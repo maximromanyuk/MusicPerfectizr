@@ -1,0 +1,10 @@
+D:\Dropbox\Документи\Visual Studio Projects\MusicPerfectizr\MusicPerfectizr.Domain\bin\Debug\MusicPerfectizr.Domain.dll
+D:\Dropbox\Документи\Visual Studio Projects\MusicPerfectizr\MusicPerfectizr.Domain\bin\Debug\MusicPerfectizr.Domain.pdb
+D:\Dropbox\Документи\Visual Studio Projects\MusicPerfectizr\MusicPerfectizr.Domain\bin\Debug\policy.2.0.taglib-sharp.dll
+D:\Dropbox\Документи\Visual Studio Projects\MusicPerfectizr\MusicPerfectizr.Domain\bin\Debug\taglib-sharp.dll
+D:\Dropbox\Документи\Visual Studio Projects\MusicPerfectizr\MusicPerfectizr.Domain\bin\Debug\policy.2.0.taglib-sharp.config
+D:\Dropbox\Документи\Visual Studio Projects\MusicPerfectizr\MusicPerfectizr.Domain\obj\Debug\MusicPerfectizr.Domain.csprojResolveAssemblyReference.cache
+D:\Dropbox\Документи\Visual Studio Projects\MusicPerfectizr\MusicPerfectizr.Domain\obj\Debug\MusicPerfectizr.Domain.dll
+D:\Dropbox\Документи\Visual Studio Projects\MusicPerfectizr\MusicPerfectizr.Domain\obj\Debug\MusicPerfectizr.Domain.pdb
+D:\Dropbox\Документи\Visual Studio Projects\MusicPerfectizr\MusicPerfectizr.Domain\bin\Debug\Ninject.dll
+D:\Dropbox\Документи\Visual Studio Projects\MusicPerfectizr\MusicPerfectizr.Domain\bin\Debug\Ninject.xml
