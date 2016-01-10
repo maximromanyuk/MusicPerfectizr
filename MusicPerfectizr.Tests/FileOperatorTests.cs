@@ -9,7 +9,14 @@ namespace MusicPerfectizr.Tests
     public class FileOperatorTests
     {
         [TestMethod]
-        public void Can_Get_New_Title_With_Valid_Tags()
+        public void Can_Get_New_Title()
+        {
+            With_Valid_Tags();
+            With_Invalid_Performer();
+            With_Invalid_Title();
+        }
+
+        public void With_Valid_Tags()
         {
             // Arrange
             // TODO: створювати власний об'єкт
@@ -32,8 +39,7 @@ namespace MusicPerfectizr.Tests
             Assert.AreEqual(1, counter);
         }
 
-        [TestMethod]
-        public void Can_Get_New_Title_With_Invalid_Performer()
+        public void With_Invalid_Performer()
         {
             // Arrange
             // TODO: створювати власний об'єкт
@@ -56,8 +62,7 @@ namespace MusicPerfectizr.Tests
             Assert.AreEqual(1, counter);
         }
 
-        [TestMethod]
-        public void Can_Get_New_Title_With_Invalid_Title()
+        public void With_Invalid_Title()
         {
             // Arrange
             // TODO: створювати власний об'єкт
@@ -79,10 +84,6 @@ namespace MusicPerfectizr.Tests
             Assert.AreEqual("Performer - song.mp3", result);
             Assert.AreEqual(1, counter);
         }
-        // rfrf
-        public void gg()
-        {
-            
-        }
+
     }
 }

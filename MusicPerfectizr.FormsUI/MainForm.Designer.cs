@@ -46,7 +46,6 @@
             this.chooseDirectoryBtn = new System.Windows.Forms.Button();
             this.launchBtn = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.LastFMcheckBox = new System.Windows.Forms.CheckBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -208,7 +207,7 @@
             // launchBtn
             // 
             this.launchBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.launchBtn.Location = new System.Drawing.Point(104, 283);
+            this.launchBtn.Location = new System.Drawing.Point(97, 264);
             this.launchBtn.Name = "launchBtn";
             this.launchBtn.Size = new System.Drawing.Size(172, 30);
             this.launchBtn.TabIndex = 18;
@@ -221,24 +220,11 @@
             this.folderBrowserDialog1.RootFolder = System.Environment.SpecialFolder.MyComputer;
             this.folderBrowserDialog1.ShowNewFolderButton = false;
             // 
-            // LastFMcheckBox
-            // 
-            this.LastFMcheckBox.AutoSize = true;
-            this.LastFMcheckBox.Checked = true;
-            this.LastFMcheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.LastFMcheckBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.LastFMcheckBox.Location = new System.Drawing.Point(17, 260);
-            this.LastFMcheckBox.Name = "LastFMcheckBox";
-            this.LastFMcheckBox.Size = new System.Drawing.Size(135, 17);
-            this.LastFMcheckBox.TabIndex = 17;
-            this.LastFMcheckBox.Text = "Tags using Last.fm API";
-            this.LastFMcheckBox.UseVisualStyleBackColor = true;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(354, 331);
+            this.ClientSize = new System.Drawing.Size(354, 310);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.moveToFolderCheckBox);
@@ -248,7 +234,6 @@
             this.Controls.Add(this.pathTextBox);
             this.Controls.Add(this.chooseDirectoryBtn);
             this.Controls.Add(this.launchBtn);
-            this.Controls.Add(this.LastFMcheckBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -283,7 +268,6 @@
         private System.Windows.Forms.Button chooseDirectoryBtn;
         private System.Windows.Forms.Button launchBtn;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
-        private System.Windows.Forms.CheckBox LastFMcheckBox;
     }
 }
 

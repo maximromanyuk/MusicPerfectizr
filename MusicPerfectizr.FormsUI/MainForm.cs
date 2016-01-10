@@ -15,9 +15,6 @@ namespace MusicPerfectizr.FormsUI
             folderBrowserDialog1.Description = "Choose folder with music...";
             pathToCopyTextBox.Enabled = false;
             chooseSecondDirectoryBtn.Enabled = false;
-
-            // upgrade: пошук файлів виходячи з теперішнього імені файлу
-            LastFMcheckBox.Enabled = false;
         }
 
         private void chooseDirectoryBtn_Click(object sender, EventArgs e)
@@ -44,9 +41,8 @@ namespace MusicPerfectizr.FormsUI
                 return;
             }
 
-            var userOptions = new UserOptions(Folding(), Title(),
-                                              moveToFolderCheckBox.Checked,
-                                              LastFMcheckBox.Checked);
+            var userOptions = new UserOptions(GetFolding(), GetTitle(),
+                                              moveToFolderCheckBox.Checked);
             string secondDirPath = null;
             try
             {
@@ -63,30 +59,28 @@ namespace MusicPerfectizr.FormsUI
                                                 userOptions,
                                                 secondDirPath);
 
-            if (LastFMcheckBox.Checked)
-                fileOperator.AddNewTags();
-
             fileOperator.DoStuff();
+            
             MessageBox.Show("All done! We did it!");
         }
 
-        private Folding Folding()
+        private Folding GetFolding()
         {
-            var temp = Domain.Folding.AsIs;
+            var temp = Folding.AsIs;
             if (createFoldingRadioButton.Checked)
-                temp = Domain.Folding.CreateFolding;
+                temp = Folding.CreateFolding;
             else if (allMusicToOneFolderRadioButton.Checked)
-                temp = Domain.Folding.AllMusicToOneFolder;
+                temp = Folding.AllMusicToOneFolder;
             return temp;
         }
 
-        private Title Title()
+        private Title GetTitle()
         {
-            var temp = Domain.Title.AsIs;
+            var temp = Title.AsIs;
             if (artistTitleRadioButton.Checked)
-                temp = Domain.Title.ArtistTitle;
+                temp = Title.ArtistTitle;
             else if (titleRadioButton.Checked)
-                temp = Domain.Title.JustTitle;
+                temp = Title.JustTitle;
             return temp;
         }
 

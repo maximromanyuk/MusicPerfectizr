@@ -27,15 +27,8 @@ namespace MusicPerfectizr.Domain
             foreach (var file in _mp3Files)
             {
                 string newFilePath = "";
-                try
-                {
-                    newFilePath = GetNewFilePath(file, GetNewTitle(file, ref renamedCounter));
-
-                }
-                catch (Exception)
-                {
-                    // ignored
-                }
+                // TODO: Повертати boolean
+                newFilePath = GetNewFilePath(file, GetNewTitle(file, ref renamedCounter));
 
                 if (File.Exists(newFilePath))
                 {
@@ -43,7 +36,7 @@ namespace MusicPerfectizr.Domain
                     continue;
                 }
 
-                //upgrade: convert to System.IO.File.Replace
+                //TODO: convert to System.IO.File.Replace
                 try
                 {
                     File.Copy(file.FullName, newFilePath, true);
@@ -97,6 +90,7 @@ namespace MusicPerfectizr.Domain
             else if (_userOptions.TitleMode == Title.ArtistTitle
                      && !validTitle && validPerformer)
             {
+                // TODO: Think!
                 temp = $"{performer} - {temp}.mp3";
                 renamedCounter++;
             }
@@ -125,7 +119,8 @@ namespace MusicPerfectizr.Domain
                     break;
 
                 case Folding.AllMusicToOneFolder:
-                    temp = Directory.CreateDirectory($"{folder}\\All music here\\").FullName + "\\" + newTitle;
+                    temp = Directory.CreateDirectory($"{folder}\\All music here\\")
+                        .FullName + "\\" + newTitle;
                     break;
 
                 case Folding.CreateFolding:
@@ -135,10 +130,12 @@ namespace MusicPerfectizr.Domain
                     if (!string.IsNullOrEmpty(performer) &&
                         !string.IsNullOrEmpty(album))
                     {
-                        temp = Directory.CreateDirectory($"{folder}\\Sorted music\\{performer}\\{album}").FullName + "\\" + newTitle;
+                        temp = Directory.CreateDirectory($"{folder}\\Sorted music\\{performer}\\{album}")
+                            .FullName + "\\" + newTitle;
                     }
                     else
                     {
+                        // TODO: file with valid performers and albums to separate folders
                         temp = $"{folder}\\Sorted music\\Files without album or artist\\{newTitle}";
                     }
                     break;
