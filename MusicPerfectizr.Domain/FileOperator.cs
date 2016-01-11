@@ -15,7 +15,8 @@ namespace MusicPerfectizr.Domain
 
         public void DoStuff(FileInfo file)
         {
-            // TODO: Повертати boolean
+            // TODO: Повертати boolean, забагато вкладень!!!
+            
             string newFilePath = GetNewFilePath(file, GetNewTitle(file));
 
             if (File.Exists(newFilePath))
