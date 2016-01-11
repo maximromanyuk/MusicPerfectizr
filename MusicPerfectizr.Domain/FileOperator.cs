@@ -15,33 +15,33 @@ namespace MusicPerfectizr.Domain
 
         public void DoStuff(FileInfo file)
         {
-                string newFilePath;
-                // TODO: Повертати boolean
-                newFilePath = GetNewFilePath(file, GetNewTitle(file));
+            // TODO: Повертати boolean
+            string newFilePath = GetNewFilePath(file, GetNewTitle(file));
 
-                if (File.Exists(newFilePath))
-                {
-                    //untouchedCounter++;
-                    return;
-                }
+            if (File.Exists(newFilePath))
+            {
+                //untouchedCounter++;
+                return;
+            }
 
-                //TODO: convert to System.IO.File.Replace
+            if (_userOptions.MoveToNewFolder)
+            {
                 try
                 {
                     File.Copy(file.FullName, newFilePath, true);
-                    File.SetAttributes(newFilePath, FileAttributes.Normal);
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine($"----- When copy: sourse: {ex.Source}, Message: {ex.Message}");
                     //exceptionCounter++;
-                    return;
                 }
-
-            if (_userOptions.MoveToNewFolder) return;
-            // видалити якщо не переміщуємо файл в іншу папку
-            File.SetAttributes(file.FullName, FileAttributes.Normal);
-            File.Delete(file.FullName);
+            }
+            else
+            {
+                // видалити якщо не переміщуємо файл в іншу папку
+                File.SetAttributes(file.FullName, FileAttributes.Normal);
+                File.Delete(file.FullName);
+            }
         }
 
         public string GetNewTitle(FileInfo file)

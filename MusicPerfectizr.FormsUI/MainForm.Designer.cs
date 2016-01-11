@@ -158,7 +158,6 @@
             this.moveToFolderCheckBox.TabIndex = 24;
             this.moveToFolderCheckBox.Text = "copy music to new foder";
             this.moveToFolderCheckBox.UseVisualStyleBackColor = true;
-            this.moveToFolderCheckBox.CheckedChanged += new System.EventHandler(this.EnableFields);
             // 
             // chooseSecondDirectoryBtn
             // 

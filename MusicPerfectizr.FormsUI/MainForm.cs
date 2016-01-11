@@ -12,7 +12,7 @@ namespace MusicPerfectizr.FormsUI
         {
             InitializeComponent();
             
-            moveToFolderCheckBox.CheckedChanged += EnableFields;
+            moveToFolderCheckBox.CheckedChanged += ChangeFieldsState;
 
             folderBrowserDialog1.Description = $"Choose folder with music...";
             pathToCopyTextBox.Enabled = false;
@@ -89,6 +89,13 @@ namespace MusicPerfectizr.FormsUI
             }
         }
 
+        private void ChangeFieldsState(object sender, EventArgs e)
+        {
+            pathToCopyTextBox.Enabled = !pathToCopyTextBox.Enabled;
+            chooseSecondDirectoryBtn.Enabled = !chooseSecondDirectoryBtn.Enabled;
+
+        }
+
         private Folding GetFolding()
         {
             var temp = Folding.AsIs;
@@ -107,12 +114,6 @@ namespace MusicPerfectizr.FormsUI
             else if (titleRadioButton.Checked)
                 temp = Title.JustTitle;
             return temp;
-        }
-        //CheckedChanged ivent for moveToFolderCheckBox
-        private void EnableFields(object sender, EventArgs e)
-        {
-            pathToCopyTextBox.Enabled = !pathToCopyTextBox.Enabled;
-            chooseSecondDirectoryBtn.Enabled = !chooseSecondDirectoryBtn.Enabled;
         }
     }
 }
