@@ -46,6 +46,8 @@
             this.chooseDirectoryBtn = new System.Windows.Forms.Button();
             this.launchBtn = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -207,7 +209,7 @@
             // launchBtn
             // 
             this.launchBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.launchBtn.Location = new System.Drawing.Point(97, 264);
+            this.launchBtn.Location = new System.Drawing.Point(84, 306);
             this.launchBtn.Name = "launchBtn";
             this.launchBtn.Size = new System.Drawing.Size(172, 30);
             this.launchBtn.TabIndex = 18;
@@ -220,11 +222,19 @@
             this.folderBrowserDialog1.RootFolder = System.Environment.SpecialFolder.MyComputer;
             this.folderBrowserDialog1.ShowNewFolderButton = false;
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(12, 259);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(279, 23);
+            this.progressBar1.TabIndex = 27;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(354, 310);
+            this.ClientSize = new System.Drawing.Size(354, 348);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.moveToFolderCheckBox);
@@ -268,6 +278,8 @@
         private System.Windows.Forms.Button chooseDirectoryBtn;
         private System.Windows.Forms.Button launchBtn;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
 
