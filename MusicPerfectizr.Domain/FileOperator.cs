@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace MusicPerfectizr.Domain
 {
@@ -54,8 +55,8 @@ namespace MusicPerfectizr.Domain
         public string GetNewTitle(TagLib.File taggedFile, 
             ref string temp)
         {
-            string performer = Feature.CleanString(taggedFile.Tag.FirstPerformer),
-                title = Feature.CleanString(taggedFile.Tag.Title);
+            string performer = CleanString(taggedFile.Tag.FirstPerformer),
+                title = CleanString(taggedFile.Tag.Title);
             bool validTitle = !string.IsNullOrEmpty(taggedFile.Tag.Title),
                 validPerformer = !string.IsNullOrEmpty(taggedFile.Tag.FirstPerformer);
 
@@ -123,6 +124,23 @@ namespace MusicPerfectizr.Domain
             }
             Console.WriteLine($"----- New file path: {temp}\n");
             return temp;
+        }
+        // Повертає строку без недопустимих символів
+        public static string CleanString(string strIn)
+        {
+            // якщо стрічка пуста - повертаємо її назад
+            if (string.IsNullOrEmpty(strIn))
+                return strIn;
+            try
+            {
+                // заміняємо недопустимі символи пробілами
+                return Regex.Replace(strIn, @"[^\w\.\&(),^%$#~{}`\[\]\'@-]", " ", RegexOptions.None, TimeSpan.FromSeconds(1.5));
+            }
+            catch (RegexMatchTimeoutException)
+            {
+                // Danger!
+                return string.Empty;
+            }
         }
     }
 }
