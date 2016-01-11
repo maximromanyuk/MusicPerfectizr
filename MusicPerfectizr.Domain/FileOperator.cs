@@ -7,17 +7,18 @@ namespace MusicPerfectizr.Domain
     public class FileOperator
     {
         private UserOptions _userOptions;
+        public FileInfo file { get; set; }
 
         public FileOperator(UserOptions userOptions)
         {
             _userOptions = userOptions;
         }
 
-        public void DoStuff(FileInfo file)
+        public void DoStuff()
         {
             // TODO: Повертати boolean, забагато вкладень!!!
             
-            string newFilePath = GetNewFilePath(file, GetNewTitle(file));
+            string newFilePath = GetNewFilePath(GetNewTitle());
 
             if (File.Exists(newFilePath))
             {
@@ -45,7 +46,7 @@ namespace MusicPerfectizr.Domain
             }
         }
 
-        public string GetNewTitle(FileInfo file)
+        public string GetNewTitle()
         {
             var taggedFile = TagLib.File.Create(file.FullName);
             string temp = file.Name;
@@ -88,7 +89,7 @@ namespace MusicPerfectizr.Domain
             return temp;
         }
 
-        public string GetNewFilePath(FileInfo file, string newTitle)
+        public string GetNewFilePath(string newTitle)
         {
             string temp = "",
                    folder = _userOptions.MoveToNewFolder ?
