@@ -33,11 +33,11 @@ namespace MusicPerfectizr.FormsUI
             }
 
             var userOptions = new UserOptions(GetFolding(), GetTitle(),
-                                              moveToFolderCheckBox.Checked);
+                                              moveToFolderCheckBox.Checked,
+                                              secondDirPath);
             var mp3Files = new DirectoryInfo(folderBrowserDialog1.SelectedPath)
                 .GetFiles("*.mp3", SearchOption.AllDirectories);
-            var fileOperator = new FileOperator(userOptions,
-                                                secondDirPath);
+            var fileOperator = new FileOperator(userOptions);
 
             for (int i = 0; i < mp3Files.Length; i++)
             {
@@ -52,13 +52,11 @@ namespace MusicPerfectizr.FormsUI
             // The progress percentage is a property of e
             progressBar1.Value = e.ProgressPercentage;
         }
-
         // Called when backgroundWorker ended his work
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             MessageBox.Show($"All done! We did it!");
         }
-
         // configure and launch backgroundWorker
         private void launchBtn_Click(object sender, EventArgs e)
         {
@@ -110,7 +108,6 @@ namespace MusicPerfectizr.FormsUI
                 temp = Title.JustTitle;
             return temp;
         }
-
         //CheckedChanged ivent for moveToFolderCheckBox
         private void EnableFields(object sender, EventArgs e)
         {

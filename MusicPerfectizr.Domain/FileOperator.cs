@@ -5,14 +5,11 @@ namespace MusicPerfectizr.Domain
 {
     public class FileOperator
     {
-        private string _secondDirPath;
         private UserOptions _userOptions;
 
-        public FileOperator(UserOptions userOptions,
-                            string secondDirPath)
+        public FileOperator(UserOptions userOptions)
         {
             _userOptions = userOptions;
-            _secondDirPath = secondDirPath;
         }
 
         public void DoStuff(FileInfo file)
@@ -93,7 +90,7 @@ namespace MusicPerfectizr.Domain
         {
             string temp = "",
                    folder = _userOptions.MoveToNewFolder ?
-                       _secondDirPath : file.DirectoryName;
+                       _userOptions.SecondDirPath : file.DirectoryName;
             var taggedFile = TagLib.File.Create(file.FullName);
 
             switch (_userOptions.FoldingMode)
