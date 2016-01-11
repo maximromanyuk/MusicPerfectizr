@@ -209,7 +209,7 @@
             // launchBtn
             // 
             this.launchBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.launchBtn.Location = new System.Drawing.Point(84, 306);
+            this.launchBtn.Location = new System.Drawing.Point(97, 273);
             this.launchBtn.Name = "launchBtn";
             this.launchBtn.Size = new System.Drawing.Size(172, 30);
             this.launchBtn.TabIndex = 18;
@@ -224,16 +224,16 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(12, 259);
+            this.progressBar1.Location = new System.Drawing.Point(12, 241);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(279, 23);
+            this.progressBar1.Size = new System.Drawing.Size(330, 26);
             this.progressBar1.TabIndex = 27;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(354, 348);
+            this.ClientSize = new System.Drawing.Size(354, 314);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
