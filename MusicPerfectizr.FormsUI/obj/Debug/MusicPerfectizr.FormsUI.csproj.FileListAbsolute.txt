@@ -10,5 +10,3 @@ D:\Dropbox\Документи\Visual Studio Projects\MusicPerfectizr\MusicPerfec
 D:\Dropbox\Документи\Visual Studio Projects\MusicPerfectizr\MusicPerfectizr.FormsUI\obj\Debug\MusicPerfectizr.FormsUI.csproj.GenerateResource.Cache
 D:\Dropbox\Документи\Visual Studio Projects\MusicPerfectizr\MusicPerfectizr.FormsUI\obj\Debug\MusicPerfectizr.FormsUI.exe
 D:\Dropbox\Документи\Visual Studio Projects\MusicPerfectizr\MusicPerfectizr.FormsUI\obj\Debug\MusicPerfectizr.FormsUI.pdb
-D:\Dropbox\Документи\Visual Studio Projects\MusicPerfectizr\MusicPerfectizr.FormsUI\bin\Debug\Ninject.dll
-D:\Dropbox\Документи\Visual Studio Projects\MusicPerfectizr\MusicPerfectizr.FormsUI\bin\Debug\Ninject.xml

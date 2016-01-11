@@ -6,5 +6,3 @@ D:\Dropbox\Документи\Visual Studio Projects\MusicPerfectizr\MusicPerfec
 D:\Dropbox\Документи\Visual Studio Projects\MusicPerfectizr\MusicPerfectizr.Domain\obj\Debug\MusicPerfectizr.Domain.csprojResolveAssemblyReference.cache
 D:\Dropbox\Документи\Visual Studio Projects\MusicPerfectizr\MusicPerfectizr.Domain\obj\Debug\MusicPerfectizr.Domain.dll
 D:\Dropbox\Документи\Visual Studio Projects\MusicPerfectizr\MusicPerfectizr.Domain\obj\Debug\MusicPerfectizr.Domain.pdb
-D:\Dropbox\Документи\Visual Studio Projects\MusicPerfectizr\MusicPerfectizr.Domain\bin\Debug\Ninject.dll
-D:\Dropbox\Документи\Visual Studio Projects\MusicPerfectizr\MusicPerfectizr.Domain\bin\Debug\Ninject.xml
