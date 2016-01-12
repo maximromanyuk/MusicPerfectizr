@@ -1,9 +1,0 @@
-D:\Dropbox\Документи\Visual Studio Projects\MusicPerfectizr\MusicPerfectizr.ConsoleUI\bin\Debug\MusicPerfectizr.ConsoleUI.exe.config
-D:\Dropbox\Документи\Visual Studio Projects\MusicPerfectizr\MusicPerfectizr.ConsoleUI\bin\Debug\MusicPerfectizr.ConsoleUI.exe
-D:\Dropbox\Документи\Visual Studio Projects\MusicPerfectizr\MusicPerfectizr.ConsoleUI\bin\Debug\MusicPerfectizr.ConsoleUI.pdb
-D:\Dropbox\Документи\Visual Studio Projects\MusicPerfectizr\MusicPerfectizr.ConsoleUI\bin\Debug\MusicPerfectizr.Domain.dll
-D:\Dropbox\Документи\Visual Studio Projects\MusicPerfectizr\MusicPerfectizr.ConsoleUI\bin\Debug\taglib-sharp.dll
-D:\Dropbox\Документи\Visual Studio Projects\MusicPerfectizr\MusicPerfectizr.ConsoleUI\bin\Debug\MusicPerfectizr.Domain.pdb
-D:\Dropbox\Документи\Visual Studio Projects\MusicPerfectizr\MusicPerfectizr.ConsoleUI\obj\Debug\MusicPerfectizr.ConsoleUI.csprojResolveAssemblyReference.cache
-D:\Dropbox\Документи\Visual Studio Projects\MusicPerfectizr\MusicPerfectizr.ConsoleUI\obj\Debug\MusicPerfectizr.ConsoleUI.exe
-D:\Dropbox\Документи\Visual Studio Projects\MusicPerfectizr\MusicPerfectizr.ConsoleUI\obj\Debug\MusicPerfectizr.ConsoleUI.pdb
