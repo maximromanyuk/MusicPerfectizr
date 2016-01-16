@@ -70,10 +70,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MusicPerfectizr.ConsoleUI\MusicPerfectizr.ConsoleUI.csproj">
-      <Project>{ae64d0c9-fedb-4664-a1c0-faca9af4d1b2}</Project>
-      <Name>MusicPerfectizr.ConsoleUI</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MusicPerfectizr.Domain\MusicPerfectizr.Domain.csproj">
       <Project>{8c3c4044-77bf-484f-94a6-89da0e57d5b2}</Project>
       <Name>MusicPerfectizr.Domain</Name>
