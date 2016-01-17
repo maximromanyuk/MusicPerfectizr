@@ -1,21 +1,27 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Drawing;
-using System.Windows.Forms;
 using System.IO;
+using MetroFramework;
 using MusicPerfectizr.Domain;
+using MetroFramework.Forms;
+using System.Windows.Forms;
 
 namespace MusicPerfectizr.FormsUI
 {
-    public partial class MainForm : Form
+    public partial class AltForm : MetroForm
     {
-        public MainForm()
+        public AltForm()
         {
             InitializeComponent();
+            
+            metroStyleManager1.Style = MetroColorStyle.Green;
+            metroStyleManager1.Theme = MetroThemeStyle.Dark;
             
             moveToFolderCheckBox.CheckedChanged += ChangeFieldsState;
 
             folderBrowserDialog1.Description = $"Choose folder with music...";
+            pathTextBox.Enabled = false;
+            pathToCopyTextBox.Enabled = false;
             pathToCopyTextBox.Enabled = false;
             chooseSecondDirectoryBtn.Enabled = false;
         }
@@ -65,9 +71,10 @@ namespace MusicPerfectizr.FormsUI
             if (folderBrowserDialog1.SelectedPath == "")
             {
                 MessageBox.Show($"Choose path");
+                
                 return;
             }
-
+            
             backgroundWorker1.DoWork += backgroundWorker1_DoWork;
             backgroundWorker1.ProgressChanged += backgroundWorker1_ProgressChanged;
             backgroundWorker1.RunWorkerCompleted += backgroundWorker1_RunWorkerCompleted;
@@ -95,7 +102,6 @@ namespace MusicPerfectizr.FormsUI
         {
             pathToCopyTextBox.Enabled = !pathToCopyTextBox.Enabled;
             chooseSecondDirectoryBtn.Enabled = !chooseSecondDirectoryBtn.Enabled;
-
         }
 
         private Folding GetFolding()
