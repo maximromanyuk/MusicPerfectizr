@@ -136,7 +136,7 @@
             // artistTitleRadioButton
             // 
             this.artistTitleRadioButton.AutoSize = true;
-            this.artistTitleRadioButton.Location = new System.Drawing.Point(3, 13);
+            this.artistTitleRadioButton.Location = new System.Drawing.Point(5, 13);
             this.artistTitleRadioButton.Name = "artistTitleRadioButton";
             this.artistTitleRadioButton.Size = new System.Drawing.Size(108, 15);
             this.artistTitleRadioButton.TabIndex = 5;
@@ -146,7 +146,7 @@
             // titleRadioButton
             // 
             this.titleRadioButton.AutoSize = true;
-            this.titleRadioButton.Location = new System.Drawing.Point(3, 34);
+            this.titleRadioButton.Location = new System.Drawing.Point(5, 34);
             this.titleRadioButton.Name = "titleRadioButton";
             this.titleRadioButton.Size = new System.Drawing.Size(56, 15);
             this.titleRadioButton.TabIndex = 6;
@@ -157,7 +157,7 @@
             // 
             this.titleAsIsRadioButton.AutoSize = true;
             this.titleAsIsRadioButton.Checked = true;
-            this.titleAsIsRadioButton.Location = new System.Drawing.Point(3, 55);
+            this.titleAsIsRadioButton.Location = new System.Drawing.Point(5, 55);
             this.titleAsIsRadioButton.Name = "titleAsIsRadioButton";
             this.titleAsIsRadioButton.Size = new System.Drawing.Size(47, 15);
             this.titleAsIsRadioButton.TabIndex = 7;
@@ -169,7 +169,7 @@
             // 
             this.doAnythingRadioButton.AutoSize = true;
             this.doAnythingRadioButton.Checked = true;
-            this.doAnythingRadioButton.Location = new System.Drawing.Point(8, 55);
+            this.doAnythingRadioButton.Location = new System.Drawing.Point(6, 55);
             this.doAnythingRadioButton.Name = "doAnythingRadioButton";
             this.doAnythingRadioButton.Size = new System.Drawing.Size(47, 15);
             this.doAnythingRadioButton.TabIndex = 4;
@@ -180,7 +180,7 @@
             // createFoldingRadioButton
             // 
             this.createFoldingRadioButton.AutoSize = true;
-            this.createFoldingRadioButton.Location = new System.Drawing.Point(8, 13);
+            this.createFoldingRadioButton.Location = new System.Drawing.Point(6, 13);
             this.createFoldingRadioButton.Name = "createFoldingRadioButton";
             this.createFoldingRadioButton.Size = new System.Drawing.Size(190, 15);
             this.createFoldingRadioButton.TabIndex = 2;
@@ -190,7 +190,7 @@
             // allMusicToOneFolderRadioButton
             // 
             this.allMusicToOneFolderRadioButton.AutoSize = true;
-            this.allMusicToOneFolderRadioButton.Location = new System.Drawing.Point(8, 34);
+            this.allMusicToOneFolderRadioButton.Location = new System.Drawing.Point(6, 34);
             this.allMusicToOneFolderRadioButton.Name = "allMusicToOneFolderRadioButton";
             this.allMusicToOneFolderRadioButton.Size = new System.Drawing.Size(143, 15);
             this.allMusicToOneFolderRadioButton.TabIndex = 3;
