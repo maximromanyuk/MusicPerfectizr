@@ -63,7 +63,7 @@
             this.groupBox2.Size = new System.Drawing.Size(123, 90);
             this.groupBox2.TabIndex = 26;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "New file name";
+            this.groupBox2.Text = "New File name";
             // 
             // artistTitleRadioButton
             // 

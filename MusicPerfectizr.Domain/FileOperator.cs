@@ -7,7 +7,7 @@ namespace MusicPerfectizr.Domain
     public class FileOperator
     {
         private UserOptions _userOptions;
-        public FileInfo file { get; set; }
+        public FileInfo CurrFile { get; set; }
 
         public FileOperator(UserOptions userOptions)
         {
@@ -30,7 +30,7 @@ namespace MusicPerfectizr.Domain
             {
                 try
                 {
-                    File.Copy(file.FullName, newFilePath, true);
+                    File.Copy(CurrFile.FullName, newFilePath, true);
                 }
                 catch (Exception ex)
                 {
@@ -41,70 +41,70 @@ namespace MusicPerfectizr.Domain
             else
             {
                 // delete file, if we don`t move it to another folder
-                File.SetAttributes(file.FullName, FileAttributes.Normal);
-                File.Delete(file.FullName);
+                File.SetAttributes(CurrFile.FullName, FileAttributes.Normal);
+                File.Delete(CurrFile.FullName);
             }
         }
 
         public string GetNewTitle()
         {
-            var taggedFile = TagLib.File.Create(file.FullName);
-            string temp = file.Name;
+            var taggedFile = TagLib.File.Create(CurrFile.FullName);
+            string newTitle = CurrFile.Name;
 
-            return GetNewTitle(taggedFile, ref temp);
+            return GetNewTitle(taggedFile, ref newTitle);
         }
 
         public string GetNewTitle(TagLib.File taggedFile, 
-            ref string temp)
+            ref string newTitle)
         {
             string performer = CleanString(taggedFile.Tag.FirstPerformer),
                 title = CleanString(taggedFile.Tag.Title);
             bool validTitle = !string.IsNullOrEmpty(taggedFile.Tag.Title),
                 validPerformer = !string.IsNullOrEmpty(taggedFile.Tag.FirstPerformer);
 
-            Console.Write($"----- Start title: {temp}");
+            Console.Write($"----- Start title: {newTitle}");
             if (_userOptions.TitleMode == Title.ArtistTitle
                 && validTitle && validPerformer)
             {
-                temp = $"{performer} - {title}.mp3";
+                newTitle = $"{performer} - {title}.mp3";
             }
             else if (_userOptions.TitleMode == Title.ArtistTitle
                      && validTitle && !validPerformer)
             {
-                temp = $"{title}.mp3";
+                newTitle = $"{title}.mp3";
             }
             else if (_userOptions.TitleMode == Title.ArtistTitle
                      && !validTitle && validPerformer)
             {
                 //TODO: Think!
-                temp = $"{performer} - {temp}.mp3";
+                newTitle = $"{performer} - {newTitle}.mp3";
             }
             else if (_userOptions.TitleMode == Title.JustTitle
                      && validTitle)
             {
-                temp = $"{title}.mp3";
+                newTitle = $"{title}.mp3";
             }
-            Console.WriteLine($", new title: {temp}");
+            Console.WriteLine($", new title: {newTitle}");
 
-            return temp;
+            return newTitle;
         }
 
-        public string GetNewFilePath(string newTitle)
+        public string GetNewFilePath(string title)
         {
-            string temp = "",
+            string filePath = "",
                    folder = _userOptions.MoveToNewFolder ?
-                       _userOptions.SecondDirPath : file.DirectoryName;
-            var taggedFile = TagLib.File.Create(file.FullName);
+                       _userOptions.SecondDirPath : CurrFile.DirectoryName;
+            var taggedFile = TagLib.File.Create(CurrFile.FullName);
 
             switch (_userOptions.FoldingMode)
             {
                 case Folding.AsIs:
-                    temp = Directory.CreateDirectory(folder).FullName + "\\" + newTitle;
+                    filePath = Directory.CreateDirectory(folder).FullName + "\\" + title;
                     break;
 
                 case Folding.AllMusicToOneFolder:
-                    temp = Directory.CreateDirectory($"{folder}\\All music here\\")
-                        .FullName + "\\" + newTitle;
+                    filePath = Directory.CreateDirectory($"{folder}\\All music here\\")
+                        .FullName + "\\" + title;
                     break;
 
                 case Folding.CreateFolding:
@@ -114,18 +114,18 @@ namespace MusicPerfectizr.Domain
                     if (!string.IsNullOrEmpty(performer) &&
                         !string.IsNullOrEmpty(album))
                     {
-                        temp = Directory.CreateDirectory($"{folder}\\Sorted music\\{performer}\\{album}")
-                            .FullName + "\\" + newTitle;
+                        filePath = Directory.CreateDirectory($"{folder}\\Sorted music\\{performer}\\{album}")
+                            .FullName + "\\" + title;
                     }
                     else
                     {
                         // TODO: file with valid performers and albums to separate folders
-                        temp = $"{folder}\\Sorted music\\Files without album or artist\\{newTitle}";
+                        filePath = $"{folder}\\Sorted music\\Files without album or artist\\{title}";
                     }
                     break;
             }
-            Console.WriteLine($"----- New file path: {temp}\n");
-            return temp;
+            Console.WriteLine($"----- New file path: {filePath}\n");
+            return filePath;
         }
         // returns string without invalid characters
         public static string CleanString(string strIn)

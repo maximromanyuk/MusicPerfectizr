@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Drawing;
 using System.Windows.Forms;
 using System.IO;
 using MusicPerfectizr.Domain;
@@ -42,7 +41,7 @@ namespace MusicPerfectizr.FormsUI
 
             for (int i = 0; i < mp3Files.Length; i++)
             {
-                fileOperator.file = mp3Files[i];
+                fileOperator.CurrFile = mp3Files[i];
                 fileOperator.DoStuff();
                 int percentage = (i + 1) * 100 / mp3Files.Length;
                 backgroundWorker1.ReportProgress(percentage);

@@ -20,10 +20,10 @@ namespace MusicPerfectizr.Tests
         //{
         //    // Arrange
         //    // TODO: створювати власний об'єкт
-        //    var file = TagLib.File.Create(Environment.CurrentDirectory +
+        //    var File = TagLib.File.Create(Environment.CurrentDirectory +
         //        "//song.mp3");
-        //    file.Tag.Performers = new[] { "Performer" };
-        //    file.Tag.Title = "Title";
+        //    File.Tag.Performers = new[] { "Performer" };
+        //    File.Tag.Title = "Title";
              
         //    var fileOperator = new FileOperator(null, 
         //        new UserOptions {TitleMode = Title.ArtistTitle}, null);
@@ -31,7 +31,7 @@ namespace MusicPerfectizr.Tests
         //    string result = "";
 
         //    // Act
-        //    fileOperator.GetNewTitle(file, 
+        //    fileOperator.GetNewTitle(File, 
         //        ref result, ref counter);
 
         //    // Assert
@@ -43,10 +43,10 @@ namespace MusicPerfectizr.Tests
         //{
         //    // Arrange
         //    // TODO: створювати власний об'єкт
-        //    var file = TagLib.File.Create(Environment.CurrentDirectory +
+        //    var File = TagLib.File.Create(Environment.CurrentDirectory +
         //        "//song.mp3");
-        //    file.Tag.Performers = new[] { "" };
-        //    file.Tag.Title = "Title";
+        //    File.Tag.Performers = new[] { "" };
+        //    File.Tag.Title = "Title";
 
         //    var fileOperator = new FileOperator(null,
         //        new UserOptions { TitleMode = Title.ArtistTitle }, null);
@@ -54,7 +54,7 @@ namespace MusicPerfectizr.Tests
         //    string result = "";
 
         //    // Act
-        //    fileOperator.GetNewTitle(file,
+        //    fileOperator.GetNewTitle(File,
         //        ref result, ref counter);
 
         //    // Assert
@@ -66,10 +66,10 @@ namespace MusicPerfectizr.Tests
         //{
         //    // Arrange
         //    // TODO: створювати власний об'єкт
-        //    var file = TagLib.File.Create(Environment.CurrentDirectory +
+        //    var File = TagLib.File.Create(Environment.CurrentDirectory +
         //        "//song.mp3");
-        //    file.Tag.Performers = new[] { "Performer" };
-        //    file.Tag.Title = "";
+        //    File.Tag.Performers = new[] { "Performer" };
+        //    File.Tag.Title = "";
 
         //    var fileOperator = new FileOperator(null,
         //        new UserOptions { TitleMode = Title.ArtistTitle }, null);
@@ -77,7 +77,7 @@ namespace MusicPerfectizr.Tests
         //    string result = "song";
 
         //    // Act
-        //    fileOperator.GetNewTitle(file,
+        //    fileOperator.GetNewTitle(File,
         //        ref result, ref counter);
 
         //    // Assert
