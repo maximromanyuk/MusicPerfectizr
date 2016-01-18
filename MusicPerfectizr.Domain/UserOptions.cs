@@ -1,5 +1,6 @@
 ﻿namespace MusicPerfectizr.Domain
 {
+    // structure for transfer date between UI and Domain
     public struct UserOptions
     {
         public UserOptions(Folding foldingMode, Title titleMode, 

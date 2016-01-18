@@ -16,7 +16,7 @@ namespace MusicPerfectizr.Domain
 
         public void DoStuff()
         {
-            // TODO: Повертати boolean, забагато вкладень!!!
+            //TODO: return boolean, too any attachments! Refactor it!
             
             string newFilePath = GetNewFilePath(GetNewTitle());
 
@@ -40,7 +40,7 @@ namespace MusicPerfectizr.Domain
             }
             else
             {
-                // видалити якщо не переміщуємо файл в іншу папку
+                // delete file, if we don`t move it to another folder
                 File.SetAttributes(file.FullName, FileAttributes.Normal);
                 File.Delete(file.FullName);
             }
@@ -76,7 +76,7 @@ namespace MusicPerfectizr.Domain
             else if (_userOptions.TitleMode == Title.ArtistTitle
                      && !validTitle && validPerformer)
             {
-                // TODO: Think!
+                //TODO: Think!
                 temp = $"{performer} - {temp}.mp3";
             }
             else if (_userOptions.TitleMode == Title.JustTitle
@@ -127,20 +127,18 @@ namespace MusicPerfectizr.Domain
             Console.WriteLine($"----- New file path: {temp}\n");
             return temp;
         }
-        // Повертає строку без недопустимих символів
+        // returns string without invalid characters
         public static string CleanString(string strIn)
         {
-            // якщо стрічка пуста - повертаємо її назад
             if (string.IsNullOrEmpty(strIn))
                 return strIn;
             try
             {
-                // заміняємо недопустимі символи пробілами
                 return Regex.Replace(strIn, @"[^\w\.\&(),^%$#~{}`\[\]\'@-]", " ", RegexOptions.None, TimeSpan.FromSeconds(1.5));
             }
             catch (RegexMatchTimeoutException)
             {
-                // Danger!
+                //TODO: Danger!
                 return string.Empty;
             }
         }
