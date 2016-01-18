@@ -49,31 +49,6 @@ namespace MusicPerfectizr.Domain
             }
         }
 
-        private string GetNewTitle(TagLib.File taggedFile)
-        {
-            string newTitle = _currFile.Name;
-            string performer = CleanString(taggedFile.Tag.FirstPerformer),
-                   title = CleanString(taggedFile.Tag.Title);
-
-            bool validTitle = !string.IsNullOrEmpty(taggedFile.Tag.Title),
-                 validPerformer = !string.IsNullOrEmpty(taggedFile.Tag.FirstPerformer);
-
-            Console.Write($"----- Start title: {newTitle}");
-            if (_userOptions.TitleMode == Title.ArtistTitle
-                     && validTitle && validPerformer)
-            {
-                newTitle = $"{performer} - {title}.mp3";
-            }
-            else if (_userOptions.TitleMode == Title.JustTitle
-                     && validTitle)
-            {
-                newTitle = $"{title}.mp3";
-            }
-            Console.WriteLine($", new title: {newTitle}");
-
-            return newTitle;
-        }
-
         private string GetNewFilePath()
         {
             var taggedFile = TagLib.File.Create(_currFile.FullName);
@@ -113,6 +88,31 @@ namespace MusicPerfectizr.Domain
             }
             Console.WriteLine($"----- New file path: {filePath}\n");
             return filePath;
+        }
+
+        private string GetNewTitle(TagLib.File taggedFile)
+        {
+            string newTitle = _currFile.Name;
+            string performer = CleanString(taggedFile.Tag.FirstPerformer),
+                   title = CleanString(taggedFile.Tag.Title);
+
+            bool validTitle = !string.IsNullOrEmpty(taggedFile.Tag.Title),
+                 validPerformer = !string.IsNullOrEmpty(taggedFile.Tag.FirstPerformer);
+
+            Console.Write($"----- Start title: {newTitle}");
+            if (_userOptions.TitleMode == Title.ArtistTitle
+                     && validTitle && validPerformer)
+            {
+                newTitle = $"{performer} - {title}.mp3";
+            }
+            else if (_userOptions.TitleMode == Title.JustTitle
+                     && validTitle)
+            {
+                newTitle = $"{title}.mp3";
+            }
+            Console.WriteLine($", new title: {newTitle}");
+
+            return newTitle;
         }
         // returns string without invalid characters
         private static string CleanString(string strIn)
