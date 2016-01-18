@@ -7,18 +7,21 @@ namespace MusicPerfectizr.Domain
     public class FileOperator
     {
         private UserOptions _userOptions;
-        public FileInfo CurrFile { get; set; }
+        private FileInfo _currFile;
 
         public FileOperator(UserOptions userOptions)
         {
             _userOptions = userOptions;
         }
 
+        public void SetTarget(FileInfo file)
+        {
+            _currFile = file;
+        }
+
         public void DoStuff()
         {
-            //TODO: return boolean, too any attachments! Refactor it!
-            
-            string newFilePath = GetNewFilePath(GetNewTitle());
+            string newFilePath = GetNewFilePath();
 
             if (File.Exists(newFilePath))
             {
@@ -30,7 +33,7 @@ namespace MusicPerfectizr.Domain
             {
                 try
                 {
-                    File.Copy(CurrFile.FullName, newFilePath, true);
+                    File.Copy(_currFile.FullName, newFilePath, true);
                 }
                 catch (Exception ex)
                 {
@@ -41,43 +44,25 @@ namespace MusicPerfectizr.Domain
             else
             {
                 // delete file, if we don`t move it to another folder
-                File.SetAttributes(CurrFile.FullName, FileAttributes.Normal);
-                File.Delete(CurrFile.FullName);
+                File.SetAttributes(_currFile.FullName, FileAttributes.Normal);
+                File.Delete(_currFile.FullName);
             }
         }
 
-        public string GetNewTitle()
+        private string GetNewTitle(TagLib.File taggedFile)
         {
-            var taggedFile = TagLib.File.Create(CurrFile.FullName);
-            string newTitle = CurrFile.Name;
-
-            return GetNewTitle(taggedFile, ref newTitle);
-        }
-
-        public string GetNewTitle(TagLib.File taggedFile, 
-            ref string newTitle)
-        {
+            string newTitle = _currFile.Name;
             string performer = CleanString(taggedFile.Tag.FirstPerformer),
-                title = CleanString(taggedFile.Tag.Title);
+                   title = CleanString(taggedFile.Tag.Title);
+
             bool validTitle = !string.IsNullOrEmpty(taggedFile.Tag.Title),
-                validPerformer = !string.IsNullOrEmpty(taggedFile.Tag.FirstPerformer);
+                 validPerformer = !string.IsNullOrEmpty(taggedFile.Tag.FirstPerformer);
 
             Console.Write($"----- Start title: {newTitle}");
             if (_userOptions.TitleMode == Title.ArtistTitle
-                && validTitle && validPerformer)
+                     && validTitle && validPerformer)
             {
                 newTitle = $"{performer} - {title}.mp3";
-            }
-            else if (_userOptions.TitleMode == Title.ArtistTitle
-                     && validTitle && !validPerformer)
-            {
-                newTitle = $"{title}.mp3";
-            }
-            else if (_userOptions.TitleMode == Title.ArtistTitle
-                     && !validTitle && validPerformer)
-            {
-                //TODO: Think!
-                newTitle = $"{performer} - {newTitle}.mp3";
             }
             else if (_userOptions.TitleMode == Title.JustTitle
                      && validTitle)
@@ -89,13 +74,15 @@ namespace MusicPerfectizr.Domain
             return newTitle;
         }
 
-        public string GetNewFilePath(string title)
+        private string GetNewFilePath()
         {
-            string filePath = "",
-                   folder = _userOptions.MoveToNewFolder ?
-                       _userOptions.SecondDirPath : CurrFile.DirectoryName;
-            var taggedFile = TagLib.File.Create(CurrFile.FullName);
+            var taggedFile = TagLib.File.Create(_currFile.FullName);
 
+            string folder = _userOptions.MoveToNewFolder ?
+                       _userOptions.SecondDirPath : _currFile.DirectoryName;
+
+            string title = GetNewTitle(taggedFile),
+                   filePath = "";
             switch (_userOptions.FoldingMode)
             {
                 case Folding.AsIs:
@@ -128,7 +115,7 @@ namespace MusicPerfectizr.Domain
             return filePath;
         }
         // returns string without invalid characters
-        public static string CleanString(string strIn)
+        private static string CleanString(string strIn)
         {
             if (string.IsNullOrEmpty(strIn))
                 return strIn;
